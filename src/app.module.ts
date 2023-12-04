@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [
@@ -11,7 +12,8 @@ import { MongooseModule } from '@nestjs/mongoose';
         dbName: 'krafters',
         autoCreate: true
       }
-    )
+    ),
+    AuthenticationModule
   ],
   controllers: [AppController],
   providers: [AppService],
