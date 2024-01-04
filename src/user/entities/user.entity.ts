@@ -36,5 +36,38 @@ export class User extends Document{
     status: number;
 }
 
+
 export type UserType = User & Document;
 export const UserSchema = SchemaFactory.createForClass(User);
+
+
+export class Admin extends Document{
+    @Prop()
+    firstName: string;
+
+    @Prop({
+        type: 'string',
+    })
+    lastName: string;
+
+    @Prop({
+        type: 'String',
+        unique:true
+      })
+      email: string;
+    
+      @Prop({
+        type: 'String',
+      })
+      @Exclude()
+      password: string;
+
+    @Prop({
+        type: 'Number',
+        description: '0:deleted, 1:active',
+        default: 0,
+    })
+    status: number;
+}
+export type AdminType = Admin & Document;
+export const AdminSchema = SchemaFactory.createForClass(Admin);

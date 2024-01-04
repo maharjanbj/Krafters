@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
         autoCreate: true
       }
     ),
-    AuthenticationModule
+    AuthenticationModule,
+    CategoryModule
   ],
   controllers: [AppController],
   providers: [AppService],
